@@ -7,34 +7,6 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 var React = require('react');
 var React__default = _interopDefault(React);
 
-var UAParser = require('ua-parser-js/dist/ua-parser.min');
-
-var UA = new UAParser();
-var browser = UA.getBrowser();
-var cpu = UA.getCPU();
-var device = UA.getDevice();
-var engine = UA.getEngine();
-var os = UA.getOS();
-var ua = UA.getUA();
-
-var setDefaults = function setDefaults(p) {
-  var d = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'none';
-  return p ? p : d;
-};
-var getNavigatorInstance = function getNavigatorInstance() {
-  if (typeof window !== 'undefined') {
-    if (window.navigator || navigator) {
-      return window.navigator || navigator;
-    }
-  }
-
-  return false;
-};
-var isIOS13Check = function isIOS13Check(type) {
-  var nav = getNavigatorInstance();
-  return nav && (nav.platform.indexOf(type) !== -1 || nav.platform === 'MacIntel' && nav.maxTouchPoints > 1 && !window.MSStream);
-};
-
 function _typeof(obj) {
   if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
     _typeof = function (obj) {
@@ -169,6 +141,42 @@ function _setPrototypeOf(o, p) {
   return _setPrototypeOf(o, p);
 }
 
+function _objectWithoutPropertiesLoose(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
+  }
+
+  return target;
+}
+
+function _objectWithoutProperties(source, excluded) {
+  if (source == null) return {};
+
+  var target = _objectWithoutPropertiesLoose(source, excluded);
+
+  var key, i;
+
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+
+    for (i = 0; i < sourceSymbolKeys.length; i++) {
+      key = sourceSymbolKeys[i];
+      if (excluded.indexOf(key) >= 0) continue;
+      if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
+      target[key] = source[key];
+    }
+  }
+
+  return target;
+}
+
 function _assertThisInitialized(self) {
   if (self === void 0) {
     throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
@@ -184,6 +192,73 @@ function _possibleConstructorReturn(self, call) {
 
   return _assertThisInitialized(self);
 }
+
+var UAParser = require('ua-parser-js/dist/ua-parser.min');
+
+var UA = new UAParser();
+var browser = UA.getBrowser();
+var cpu = UA.getCPU();
+var device = UA.getDevice();
+var engine = UA.getEngine();
+var os = UA.getOS();
+var ua = UA.getUA();
+var setUA = function setUA(uaStr) {
+  return UA.setUA(uaStr);
+};
+function serverUA(userAgent) {
+  var UA = new UAParser(userAgent);
+  return {
+    UA: UA,
+    browser: UA.getBrowser(),
+    cpu: UA.getCPU(),
+    device: UA.getDevice(),
+    engine: UA.getEngine(),
+    os: UA.getOS(),
+    ua: UA.getUA(),
+    setUA: function setUA(uaStr) {
+      return UA.setUA(uaStr);
+    }
+  };
+}
+var mockUserAgent = function mockUserAgent(userAgent) {
+  window.navigator.__defineGetter__('userAgent', function () {
+    return userAgent;
+  });
+}; //TODO: Rework structure, move helper functions to utils
+
+var setDefaults = function setDefaults(p) {
+  var d = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'none';
+  return p ? p : d;
+};
+var getNavigatorInstance = function getNavigatorInstance() {
+  if (typeof window !== 'undefined') {
+    if (window.navigator || navigator) {
+      return window.navigator || navigator;
+    }
+  }
+
+  return false;
+};
+var isIOS13Check = function isIOS13Check(type) {
+  var nav = getNavigatorInstance();
+  return nav && nav.platform && (nav.platform.indexOf(type) !== -1 || nav.platform === 'MacIntel' && nav.maxTouchPoints > 1 && !window.MSStream);
+};
+
+var UAHelper = /*#__PURE__*/Object.freeze({
+  UA: UA,
+  browser: browser,
+  cpu: cpu,
+  device: device,
+  engine: engine,
+  os: os,
+  ua: ua,
+  setUA: setUA,
+  serverUA: serverUA,
+  mockUserAgent: mockUserAgent,
+  setDefaults: setDefaults,
+  getNavigatorInstance: getNavigatorInstance,
+  isIOS13Check: isIOS13Check
+});
 
 var DEVICE_TYPES = {
   MOBILE: 'mobile',
@@ -307,9 +382,18 @@ var wearPayload = function wearPayload(isWearable, engine, os, ua) {
   };
 };
 
-var type = checkType(device.type);
+function deviceDetect(userAgent) {
+  var serverUA$1 = serverUA,
+      clientUA = _objectWithoutProperties(UAHelper, ["serverUA"]);
 
-function deviceDetect() {
+  var _ref = userAgent ? serverUA$1(userAgent) : clientUA,
+      device = _ref.device,
+      browser = _ref.browser,
+      engine = _ref.engine,
+      os = _ref.os,
+      ua = _ref.ua;
+
+  var type = checkType(device.type);
   var isBrowser = type.isBrowser,
       isMobile = type.isMobile,
       isTablet = type.isTablet,

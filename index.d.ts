@@ -75,7 +75,7 @@ declare namespace ReactDeviceDetect {
     condition?: boolean;
   }
 
-  export function deviceDetect (): any;
+  export function deviceDetect (userAgent?:string): any;
 
   export function withOrientationChange (Component: any): any;
 

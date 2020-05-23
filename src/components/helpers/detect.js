@@ -1,17 +1,14 @@
-import { browser, device, os, ua, engine } from "./get-ua-data";
-import * as create from "./types";
+import * as create from './types';
+import * as UAHelper from './get-ua-data';
 
-const type = create.checkType(device.type);
+function deviceDetect(userAgent) {
+  const { serverUA, ...clientUA } = UAHelper;
 
-function deviceDetect () {
-  const {
-    isBrowser,
-    isMobile,
-    isTablet,
-    isSmartTV,
-    isConsole,
-    isWearable
-  } = type;
+  const { device, browser, engine, os, ua } = userAgent ? serverUA(userAgent) : clientUA;
+
+  const type = create.checkType(device.type);
+
+  const { isBrowser, isMobile, isTablet, isSmartTV, isConsole, isWearable } = type;
 
   if (isBrowser) {
     return create.broPayload(isBrowser, browser, engine, os, ua);
@@ -36,6 +33,6 @@ function deviceDetect () {
   if (isWearable) {
     return create.wearPayload(isWearable, engine, os, ua);
   }
-};
+}
 
-export { deviceDetect }
+export { deviceDetect };

@@ -8,9 +8,23 @@ export const device = UA.getDevice();
 export const engine = UA.getEngine();
 export const os = UA.getOS();
 export const ua = UA.getUA();
-export const setUA = uaStr => UA.setUA(uaStr);
+export const setUA = (uaStr) => UA.setUA(uaStr);
 
-export const mockUserAgent = userAgent => {
+export function serverUA(userAgent) {
+  const UA = new UAParser(userAgent);
+  return {
+    UA: UA,
+    browser: UA.getBrowser(),
+    cpu: UA.getCPU(),
+    device: UA.getDevice(),
+    engine: UA.getEngine(),
+    os: UA.getOS(),
+    ua: UA.getUA(),
+    setUA: (uaStr) => UA.setUA(uaStr),
+  };
+}
+
+export const mockUserAgent = (userAgent) => {
   window.navigator.__defineGetter__('userAgent', () => userAgent);
 };
 
@@ -27,9 +41,11 @@ export const getNavigatorInstance = () => {
   return false;
 };
 
-export const isIOS13Check = type => {
+export const isIOS13Check = (type) => {
   const nav = getNavigatorInstance();
   return (
-    nav && nav.platform && (nav.platform.indexOf(type) !== -1 || (nav.platform === 'MacIntel' && nav.maxTouchPoints > 1 && !window.MSStream))
+    nav &&
+    nav.platform &&
+    (nav.platform.indexOf(type) !== -1 || (nav.platform === 'MacIntel' && nav.maxTouchPoints > 1 && !window.MSStream))
   );
 };
