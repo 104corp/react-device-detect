@@ -53,6 +53,28 @@ render() {
 }
 ```
 
+if you need to manualy detect a device using a user agent you can pass the userAgent as an argument
+
+```javascript
+import { deviceDetect } from 'react-device-detect';
+
+const userAgent =
+      "Mozilla/5.0 (Linux; Android 5.1.1; Nexus 6 Build/LYZ28E) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.79 Mobile Safari/537.36";
+      
+const { isMobile } = deviceDetect(userAgent)
+
+renderContent = () => {
+    if (isMobile) {
+        return <div> This content is unavailable on mobile</div>
+    }
+    return <div> ...content </div>
+}
+
+render() {
+    return this.renderContent();
+}
+```
+
 If you want to leave a message to a specific browser (e.g IE), you can use `isIE` selector
 
 ```javascript
