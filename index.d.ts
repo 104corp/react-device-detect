@@ -209,36 +209,36 @@ declare namespace ReactDeviceDetect {
   export const isElectron: boolean;
 
   export const uaSelectors:(userAgent:string) => {
-    isBrowser: (userAgent:string) => boolean;
-    isMobile: (userAgent:string) => boolean;
-    isTablet: (userAgent:string) => boolean;
-    isSmartTV: (userAgent:string) => boolean;
-    isConsole: (userAgent:string) => boolean;
-    isWearable: (userAgent:string) => boolean;
-    isMobileSafari: (userAgent:string) => boolean;
-    isChromium: (userAgent:string) => boolean;
-    isMobileOnly: (userAgent:string) => boolean;
-    isAndroid: (userAgent:string) => boolean;
-    isWinPhone: (userAgent:string) => boolean;
-    isIOS: (userAgent:string) => boolean;
-    isChrome: (userAgent:string) => boolean;
-    isFirefox: (userAgent:string) => boolean;
-    isSafari: (userAgent:string) => boolean;
-    isOpera: (userAgent:string) => boolean;
-    isIE: (userAgent:string) => boolean;
-    isEdge: (userAgent:string) => boolean;
-    isYandex: (userAgent:string) => boolean;
-    osVersion: (userAgent:string) => string;
-    osName: (userAgent:string) => string;
-    fullBrowserVersion:(userAgent:string) => string;
-    browserVersion:(userAgent:string) => string;
-    browserName:(userAgent:string) => string;
-    mobileVendor:(userAgent:string) => string;
-    mobileModel:(userAgent:string) => string;
-    engineName:(userAgent:string) => string;
-    engineVersion:(userAgent:string) => string;
-    getUA:(userAgent:string) => string;
-    deviceType:(userAgent:string) => string;
-    isElectron:(userAgent:string) => boolean;
+    isBrowser:ReactDeviceDetect.isBrowser
+    isMobile:ReactDeviceDetect.isMobile
+    isTablet:ReactDeviceDetect.isTablet
+    isSmartTV:ReactDeviceDetect.isSmartTV
+    isConsole:ReactDeviceDetect.isConsole
+    isWearable:ReactDeviceDetect.isWearable
+    isMobileSafari:ReactDeviceDetect.isMobileSafari
+    isChromium:ReactDeviceDetect.isChromium
+    isMobileOnly:ReactDeviceDetect.isMobileOnly
+    isAndroid:ReactDeviceDetect.isAndroid
+    isWinPhone:ReactDeviceDetect.isWinPhone
+    isIOS:ReactDeviceDetect.isIOS
+    isChrome:ReactDeviceDetect.isChrome
+    isFirefox:ReactDeviceDetect.isFirefox
+    isSafari:ReactDeviceDetect.isSafari
+    isOpera:ReactDeviceDetect.isOpera
+    isIE:ReactDeviceDetect.isIE
+    isEdge:ReactDeviceDetect.isEdge
+    isYandex:ReactDeviceDetect.isYandex
+    osVersion:ReactDeviceDetect.osVersion
+    osName:ReactDeviceDetect.osName
+    fullBrowserVersion:ReactDeviceDetect.fullBrowserVersion
+    browserVersion:ReactDeviceDetect.browserVersion
+    browserName:ReactDeviceDetect.browserName
+    mobileVendor:ReactDeviceDetect.mobileVendor
+    mobileModel:ReactDeviceDetect.mobileModel
+    engineName:ReactDeviceDetect.engineName
+    engineVersion:ReactDeviceDetect.engineVersion
+    getUA:ReactDeviceDetect.getUA
+    deviceType:ReactDeviceDetect.deviceType
+    isElectron:ReactDeviceDetect.isElectron
   }
 }
