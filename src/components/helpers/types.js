@@ -1,4 +1,4 @@
-import { setDefaults } from "./get-ua-data";
+import { setDefaults } from './get-ua-data';
 
 export const DEVICE_TYPES = {
   MOBILE: 'mobile',
@@ -6,26 +6,26 @@ export const DEVICE_TYPES = {
   SMART_TV: 'smarttv',
   CONSOLE: 'console',
   WEARABLE: 'wearable',
-  BROWSER: undefined
+  BROWSER: undefined,
 };
 
 export const BROWSER_TYPES = {
   CHROME: 'Chrome',
-  FIREFOX: "Firefox",
-  OPERA: "Opera",
-  YANDEX: "Yandex",
-  SAFARI: "Safari",
-  INTERNET_EXPLORER: "Internet Explorer",
-  EDGE: "Edge",
-  CHROMIUM: "Chromium",
+  FIREFOX: 'Firefox',
+  OPERA: 'Opera',
+  YANDEX: 'Yandex',
+  SAFARI: 'Safari',
+  INTERNET_EXPLORER: 'Internet Explorer',
+  EDGE: 'Edge',
+  CHROMIUM: 'Chromium',
   IE: 'IE',
-  MOBILE_SAFARI: "Mobile Safari"
+  MOBILE_SAFARI: 'Mobile Safari',
 };
 
 export const OS_TYPES = {
   IOS: 'iOS',
-  ANDROID: "Android",
-  WINDOWS_PHONE: "Windows Phone"
+  ANDROID: 'Android',
+  WINDOWS_PHONE: 'Windows Phone',
 };
 
 const initialData = {
@@ -34,10 +34,10 @@ const initialData = {
   isBrowser: false,
   isSmartTV: false,
   isConsole: false,
-  isWearable: false
+  isWearable: false,
 };
 
-export const checkType = type => {
+export const checkType = (type) => {
   switch (type) {
     case DEVICE_TYPES.MOBILE:
       return { isMobile: true };
@@ -56,7 +56,7 @@ export const checkType = type => {
   }
 };
 
-export const getCurrentBrowser = name => {
+export const getCurrentBrowser = (name) => {
   switch (name) {
     case BROWSER_TYPES.CHROME:
     case BROWSER_TYPES.FIREFOX:
@@ -81,16 +81,16 @@ export const broPayload = (isBrowser, browser, engine, os, ua) => ({
   engineVersion: setDefaults(engine.version),
   osName: setDefaults(os.name),
   osVersion: setDefaults(os.version),
-  userAgent: setDefaults(ua)
+  userAgent: setDefaults(ua),
 });
 
 export const mobilePayload = (type, device, os, ua) => ({
   ...type,
   vendor: setDefaults(device.vendor),
   model: setDefaults(device.model),
-  os: setDefaults(os.name),
+  osName: setDefaults(os.name),
   osVersion: setDefaults(os.version),
-  ua: setDefaults(ua)
+  userAgent: setDefaults(ua),
 });
 
 export const stvPayload = (isSmartTV, engine, os, ua) => ({
@@ -99,7 +99,7 @@ export const stvPayload = (isSmartTV, engine, os, ua) => ({
   engineVersion: setDefaults(engine.version),
   osName: setDefaults(os.name),
   osVersion: setDefaults(os.version),
-  userAgent: setDefaults(ua)
+  userAgent: setDefaults(ua),
 });
 
 export const consolePayload = (isConsole, engine, os, ua) => ({
@@ -108,7 +108,7 @@ export const consolePayload = (isConsole, engine, os, ua) => ({
   engineVersion: setDefaults(engine.version),
   osName: setDefaults(os.name),
   osVersion: setDefaults(os.version),
-  userAgent: setDefaults(ua)
+  userAgent: setDefaults(ua),
 });
 
 export const wearPayload = (isWearable, engine, os, ua) => ({
@@ -117,5 +117,5 @@ export const wearPayload = (isWearable, engine, os, ua) => ({
   engineVersion: setDefaults(engine.version),
   osName: setDefaults(os.name),
   osVersion: setDefaults(os.version),
-  userAgent: setDefaults(ua)
+  userAgent: setDefaults(ua),
 });

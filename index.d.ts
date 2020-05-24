@@ -75,7 +75,29 @@ declare namespace ReactDeviceDetect {
     condition?: boolean;
   }
 
-  export function deviceDetect (userAgent?:string): any;
+  export function deviceDetect(
+    userAgent?: string
+  ): {
+    isMobile?: boolean;
+    isTablet?: boolean;
+    isBrowser?: boolean;
+    isSmartTV?: boolean;
+    isConsole?: boolean;
+    isWearable?: boolean;
+
+    engineName: string;
+    engineVersion: string;
+    osVersion: string;
+    userAgent: string;
+    osName: string;
+
+    browserMajorVersion?: string;
+    browserFullVersion?: string;
+    browserName?: string;
+
+    vendor?: string;
+    model?: string;
+  };
 
   export function withOrientationChange (Component: any): any;
 

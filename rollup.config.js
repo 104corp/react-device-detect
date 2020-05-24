@@ -1,20 +1,22 @@
-import resolve from 'rollup-plugin-node-resolve'
-import babel from 'rollup-plugin-babel'
-import commonjs from 'rollup-plugin-commonjs'
+import resolve from 'rollup-plugin-node-resolve';
+import babel from 'rollup-plugin-babel';
+import commonjs from 'rollup-plugin-commonjs';
+import { uglify } from 'rollup-plugin-uglify';
 
 export default {
-  external: [ 'react', 'react-dom' ],
+  external: ['react', 'react-dom'],
   input: 'src/index.js',
   output: {
     file: 'main.js',
-    format: 'cjs'
+    format: 'cjs',
   },
   plugins: [
     resolve(),
     babel({
       babelrc: false,
-      presets: ["@babel/preset-env", '@babel/preset-react'],
+      presets: ['@babel/preset-env', '@babel/preset-react'],
     }),
-    commonjs({ include: 'node_modules/**' })
-  ]
-}
+    commonjs({ include: 'node_modules/**' }),
+    uglify(),
+  ],
+};

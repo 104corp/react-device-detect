@@ -93,9 +93,9 @@ describe("Types tests", () => {
         isTablet: false,
         vendor: device.vendor,
         model: device.model,
-        os: mobileOs.name,
+        osName: mobileOs.name,
         osVersion: mobileOs.version,
-        ua: mobileUa
+        userAgent: mobileUa
       });
     });
 
