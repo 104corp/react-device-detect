@@ -11,7 +11,7 @@ export const ua = UA.getUA();
 export const setUA = (uaStr) => UA.setUA(uaStr);
 
 export function serverUA(userAgent) {
-  const UA = new UAParser(userAgent);
+  const UA = userAgent ? new UAParser(userAgent) : new UAParser();
   return {
     UA: UA,
     browser: UA.getBrowser(),

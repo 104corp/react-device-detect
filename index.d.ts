@@ -206,4 +206,38 @@ declare namespace ReactDeviceDetect {
   export const isIPod13: boolean;
 
   export const isElectron: boolean;
+
+  export const uaSelectors:(userAgent:string) => {
+    isBrowser: (userAgent:string) => boolean;
+    isMobile: (userAgent:string) => boolean;
+    isTablet: (userAgent:string) => boolean;
+    isSmartTV: (userAgent:string) => boolean;
+    isConsole: (userAgent:string) => boolean;
+    isWearable: (userAgent:string) => boolean;
+    isMobileSafari: (userAgent:string) => boolean;
+    isChromium: (userAgent:string) => boolean;
+    isMobileOnly: (userAgent:string) => boolean;
+    isAndroid: (userAgent:string) => boolean;
+    isWinPhone: (userAgent:string) => boolean;
+    isIOS: (userAgent:string) => boolean;
+    isChrome: (userAgent:string) => boolean;
+    isFirefox: (userAgent:string) => boolean;
+    isSafari: (userAgent:string) => boolean;
+    isOpera: (userAgent:string) => boolean;
+    isIE: (userAgent:string) => boolean;
+    isEdge: (userAgent:string) => boolean;
+    isYandex: (userAgent:string) => boolean;
+    osVersion: (userAgent:string) => string;
+    osName: (userAgent:string) => string;
+    fullBrowserVersion:(userAgent:string) => string;
+    browserVersion:(userAgent:string) => string;
+    browserName:(userAgent:string) => string;
+    mobileVendor:(userAgent:string) => string;
+    mobileModel:(userAgent:string) => string;
+    engineName:(userAgent:string) => string;
+    engineVersion:(userAgent:string) => string;
+    getUA:(userAgent:string) => string;
+    deviceType:(userAgent:string) => string;
+    isElectron:(userAgent:string) => boolean;
+  }
 }
