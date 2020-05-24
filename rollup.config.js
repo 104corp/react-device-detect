@@ -17,6 +17,6 @@ export default {
       presets: ['@babel/preset-env', '@babel/preset-react'],
     }),
     commonjs({ include: 'node_modules/**' }),
-    uglify(),
+    // uglify(),
   ],
 };
