@@ -209,36 +209,36 @@ declare namespace ReactDeviceDetect {
   export const isElectron: boolean;
 
   export const uaSelectors:(userAgent:string) => {
-    isBrowser:ReactDeviceDetect.isBrowser
-    isMobile:ReactDeviceDetect.isMobile
-    isTablet:ReactDeviceDetect.isTablet
-    isSmartTV:ReactDeviceDetect.isSmartTV
-    isConsole:ReactDeviceDetect.isConsole
-    isWearable:ReactDeviceDetect.isWearable
-    isMobileSafari:ReactDeviceDetect.isMobileSafari
-    isChromium:ReactDeviceDetect.isChromium
-    isMobileOnly:ReactDeviceDetect.isMobileOnly
-    isAndroid:ReactDeviceDetect.isAndroid
-    isWinPhone:ReactDeviceDetect.isWinPhone
-    isIOS:ReactDeviceDetect.isIOS
-    isChrome:ReactDeviceDetect.isChrome
-    isFirefox:ReactDeviceDetect.isFirefox
-    isSafari:ReactDeviceDetect.isSafari
-    isOpera:ReactDeviceDetect.isOpera
-    isIE:ReactDeviceDetect.isIE
-    isEdge:ReactDeviceDetect.isEdge
-    isYandex:ReactDeviceDetect.isYandex
-    osVersion:ReactDeviceDetect.osVersion
-    osName:ReactDeviceDetect.osName
-    fullBrowserVersion:ReactDeviceDetect.fullBrowserVersion
-    browserVersion:ReactDeviceDetect.browserVersion
-    browserName:ReactDeviceDetect.browserName
-    mobileVendor:ReactDeviceDetect.mobileVendor
-    mobileModel:ReactDeviceDetect.mobileModel
-    engineName:ReactDeviceDetect.engineName
-    engineVersion:ReactDeviceDetect.engineVersion
-    getUA:ReactDeviceDetect.getUA
-    deviceType:ReactDeviceDetect.deviceType
-    isElectron:ReactDeviceDetect.isElectron
+    isBrowser:typeof ReactDeviceDetect.isBrowser
+    isMobile:typeof ReactDeviceDetect.isMobile
+    isTablet:typeof ReactDeviceDetect.isTablet
+    isSmartTV:typeof ReactDeviceDetect.isSmartTV
+    isConsole:typeof ReactDeviceDetect.isConsole
+    isWearable:typeof ReactDeviceDetect.isWearable
+    isMobileSafari:typeof ReactDeviceDetect.isMobileSafari
+    isChromium:typeof ReactDeviceDetect.isChromium
+    isMobileOnly:typeof ReactDeviceDetect.isMobileOnly
+    isAndroid:typeof ReactDeviceDetect.isAndroid
+    isWinPhone:typeof ReactDeviceDetect.isWinPhone
+    isIOS:typeof ReactDeviceDetect.isIOS
+    isChrome:typeof ReactDeviceDetect.isChrome
+    isFirefox:typeof ReactDeviceDetect.isFirefox
+    isSafari:typeof ReactDeviceDetect.isSafari
+    isOpera:typeof ReactDeviceDetect.isOpera
+    isIE:typeof ReactDeviceDetect.isIE
+    isEdge:typeof ReactDeviceDetect.isEdge
+    isYandex:typeof ReactDeviceDetect.isYandex
+    osVersion:typeof ReactDeviceDetect.osVersion
+    osName:typeof ReactDeviceDetect.osName
+    fullBrowserVersion:typeof ReactDeviceDetect.fullBrowserVersion
+    browserVersion:typeof ReactDeviceDetect.browserVersion
+    browserName:typeof ReactDeviceDetect.browserName
+    mobileVendor:typeof ReactDeviceDetect.mobileVendor
+    mobileModel:typeof ReactDeviceDetect.mobileModel
+    engineName:typeof ReactDeviceDetect.engineName
+    engineVersion:typeof ReactDeviceDetect.engineVersion
+    getUA:typeof ReactDeviceDetect.getUA
+    deviceType:typeof ReactDeviceDetect.deviceType
+    isElectron:typeof ReactDeviceDetect.isElectron
   }
 }
