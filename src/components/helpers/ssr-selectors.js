@@ -36,7 +36,7 @@ const isIEType = (userAgent) =>
   serverUA(userAgent).browser.name === BROWSER_TYPES.IE;
 
 const isElectronType = (userAgent) => {
-  const ua = userAgent.toLowerCase();
+  const ua = userAgent ? userAgent.toLowerCase() : serverUA().ua;
   return /electron/.test(ua);
 };
 
@@ -84,6 +84,6 @@ export function uaSelectors(userAgent) {
     isEdge: isEdgeType(userAgent),
     isYandex: isYandexType(userAgent),
     deviceType: getDeviceType(userAgent),
-    isElectron: isElectronType(),
+    isElectron: isElectronType(userAgent),
   };
 }
