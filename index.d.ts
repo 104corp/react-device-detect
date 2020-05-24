@@ -57,6 +57,7 @@ declare module "react-device-detect" {
   export import isIPod13 = ReactDeviceDetect.isIPod13;
   export import isElectron = ReactDeviceDetect.isElectron;
   export import withOrientationChange = ReactDeviceDetect.withOrientationChange;
+  export import uaSelectors = ReactDeviceDetect.uaSelectors;
 }
 
 declare namespace ReactDeviceDetect {
