@@ -12,7 +12,7 @@ const {
   isWearable,
   isConsole,
   isTablet
-} = uaSelectors(_userAgent);
+} = uaSelectors((_userAgent !== 'undefined' ? _userAgent : null));
 
 export const AndroidView = ({ renderWithFragment, children, viewClassName, style }) => {
   return isAndroid ? (
