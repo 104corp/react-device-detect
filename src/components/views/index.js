@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import { uaSelectors } from '../helpers/ssr-selectors';
 
 const userAgent = (typeof _userAgent !== 'undefined') ? _userAgent : null;
+console.log('userAgent',userAgent);
 
 const {
   isAndroid,
@@ -30,6 +31,8 @@ export const AndroidView = ({ renderWithFragment, children, viewClassName, style
 };
 
 export const BrowserView = ({ renderWithFragment, children, viewClassName, style }) => {
+  const userAgent1 = (typeof _userAgent !== 'undefined') ? _userAgent : null;
+  console.log('userAgent1',userAgent1);
   return isBrowser ? (
     renderWithFragment ? (
       <Fragment>{children}</Fragment>
