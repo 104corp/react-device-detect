@@ -1,5 +1,8 @@
 import React, { Fragment } from 'react';
 import { uaSelectors } from '../helpers/ssr-selectors';
+
+const userAgent = (typeof _userAgent !== 'undefined') ? _userAgent : null;
+
 const {
   isAndroid,
   isBrowser,
@@ -12,7 +15,7 @@ const {
   isWearable,
   isConsole,
   isTablet
-} = uaSelectors((_userAgent !== 'undefined' ? _userAgent : null));
+} = uaSelectors(userAgent);
 
 export const AndroidView = ({ renderWithFragment, children, viewClassName, style }) => {
   return isAndroid ? (
