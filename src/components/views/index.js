@@ -1,24 +1,9 @@
 import React, { Fragment } from 'react';
 import { uaSelectors } from '../helpers/ssr-selectors';
 
-const userAgent = (typeof _userAgent !== 'undefined') ? _userAgent : null;
-console.log('userAgent',userAgent);
-
-const {
-  isAndroid,
-  isBrowser,
-  isIOS,
-  isMobile,
-  isIE,
-  isWinPhone,
-  isSmartTV,
-  isMobileOnly,
-  isWearable,
-  isConsole,
-  isTablet
-} = uaSelectors(userAgent);
-
 export const AndroidView = ({ renderWithFragment, children, viewClassName, style }) => {
+  const userAgent = (typeof _userAgent !== 'undefined') ? _userAgent : null;
+  const { isAndroid } = uaSelectors(userAgent);
   return isAndroid ? (
     renderWithFragment ? (
       <Fragment>{children}</Fragment>
@@ -31,8 +16,8 @@ export const AndroidView = ({ renderWithFragment, children, viewClassName, style
 };
 
 export const BrowserView = ({ renderWithFragment, children, viewClassName, style }) => {
-  const userAgent1 = (typeof _userAgent !== 'undefined') ? _userAgent : null;
-  console.log('userAgent1',userAgent1);
+  const userAgent = (typeof _userAgent !== 'undefined') ? _userAgent : null;
+  const { isBrowser } = uaSelectors(userAgent);
   return isBrowser ? (
     renderWithFragment ? (
       <Fragment>{children}</Fragment>
@@ -45,6 +30,8 @@ export const BrowserView = ({ renderWithFragment, children, viewClassName, style
 };
 
 export const IEView = ({ renderWithFragment, children, viewClassName, style }) => {
+  const userAgent = (typeof _userAgent !== 'undefined') ? _userAgent : null;
+  const { isIE } = uaSelectors(userAgent);
   return isIE ? (
     renderWithFragment ? (
       <Fragment>{children}</Fragment>
@@ -57,6 +44,8 @@ export const IEView = ({ renderWithFragment, children, viewClassName, style }) =
 };
 
 export const IOSView = ({ renderWithFragment, children, viewClassName, style }) => {
+  const userAgent = (typeof _userAgent !== 'undefined') ? _userAgent : null;
+  const { isIOS } = uaSelectors(userAgent);
   return isIOS ? (
     renderWithFragment ? (
       <Fragment>{children}</Fragment>
@@ -69,6 +58,8 @@ export const IOSView = ({ renderWithFragment, children, viewClassName, style }) 
 };
 
 export const MobileView = ({ renderWithFragment, children, viewClassName, style }) => {
+  const userAgent = (typeof _userAgent !== 'undefined') ? _userAgent : null;
+  const { isMobile } = uaSelectors(userAgent);
   return isMobile ? (
     renderWithFragment ? (
       <Fragment>{children}</Fragment>
@@ -81,6 +72,8 @@ export const MobileView = ({ renderWithFragment, children, viewClassName, style 
 };
 
 export const TabletView = ({ renderWithFragment, children, viewClassName, style }) => {
+  const userAgent = (typeof _userAgent !== 'undefined') ? _userAgent : null;
+  const { isTablet } = uaSelectors(userAgent);
   return isTablet ? (
     renderWithFragment ? (
       <Fragment>{children}</Fragment>
@@ -93,6 +86,8 @@ export const TabletView = ({ renderWithFragment, children, viewClassName, style 
 };
 
 export const WinPhoneView = ({ renderWithFragment, children, viewClassName, style }) => {
+  const userAgent = (typeof _userAgent !== 'undefined') ? _userAgent : null;
+  const { isWinPhone } = uaSelectors(userAgent);
   return isWinPhone ? (
     renderWithFragment ? (
       <Fragment>{children}</Fragment>
@@ -105,6 +100,8 @@ export const WinPhoneView = ({ renderWithFragment, children, viewClassName, styl
 };
 
 export const MobileOnlyView = ({ renderWithFragment, children, viewClassName, style }) => {
+  const userAgent = (typeof _userAgent !== 'undefined') ? _userAgent : null;
+  const { isMobileOnly } = uaSelectors(userAgent);
   return isMobileOnly ? (
     renderWithFragment ? (
       <Fragment>{children}</Fragment>
@@ -117,6 +114,8 @@ export const MobileOnlyView = ({ renderWithFragment, children, viewClassName, st
 };
 
 export const SmartTVView = ({ renderWithFragment, children, viewClassName, style }) => {
+  const userAgent = (typeof _userAgent !== 'undefined') ? _userAgent : null;
+  const { isSmartTV } = uaSelectors(userAgent);
   return isSmartTV ? (
     renderWithFragment ? (
       <Fragment>{children}</Fragment>
@@ -129,6 +128,8 @@ export const SmartTVView = ({ renderWithFragment, children, viewClassName, style
 };
 
 export const ConsoleView = ({ renderWithFragment, children, viewClassName, style }) => {
+  const userAgent = (typeof _userAgent !== 'undefined') ? _userAgent : null;
+  const { isConsole } = uaSelectors(userAgent);
   return isConsole ? (
     renderWithFragment ? (
       <Fragment>{children}</Fragment>
@@ -141,6 +142,8 @@ export const ConsoleView = ({ renderWithFragment, children, viewClassName, style
 };
 
 export const WearableView = ({ renderWithFragment, children, viewClassName, style }) => {
+  const userAgent = (typeof _userAgent !== 'undefined') ? _userAgent : null;
+  const { isWearable } = uaSelectors(userAgent);
   return isWearable ? (
     renderWithFragment ? (
       <Fragment>{children}</Fragment>
