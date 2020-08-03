@@ -24,6 +24,7 @@
     "console"
   ],
   "peerDependencies": {
+    "express-http-context": "^1.2.4",
     "react": "^0.14.0 || ^15.0.0 || ^16.0.0",
     "react-dom": "^0.14.0 || ^15.0.0 || ^16.0.0"
   },
@@ -63,7 +64,7 @@
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-uglify": "^6.0.4"
   },
-  "dependencies": {
+  "dependencies": {    
     "ua-parser-js": "^0.7.21"
   }
 }

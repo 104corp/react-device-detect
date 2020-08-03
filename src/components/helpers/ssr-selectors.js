@@ -1,5 +1,6 @@
 import { serverUA, setDefaults, isIOS13Check, getNavigatorInstance } from './get-ua-data';
 import { BROWSER_TYPES, DEVICE_TYPES, OS_TYPES } from './types';
+const httpContext = require('express-http-context');
 
 const isMobileType = (userAgent) => serverUA(userAgent).device.type === DEVICE_TYPES.MOBILE;
 const isTabletType = (userAgent) => serverUA(userAgent).device.type === DEVICE_TYPES.TABLET;
@@ -52,8 +53,8 @@ const getEngineVersion = (userAgent) => setDefaults(serverUA(userAgent).engine.v
 const getUseragent = (userAgent) => setDefaults(serverUA(userAgent).ua);
 const getDeviceType = (userAgent) => setDefaults(serverUA(userAgent).device.type, 'browser');
 
-export function uaIsMobile() {
-  const userAgent = (typeof _userAgent !== 'undefined') ? _userAgent : null;
+export function uaIsMobile() {  
+  const userAgent = httpContext.get('userAgent');
   // const { isMobile } = uaSelectors(userAgent);
   return isMobileAndTabletType(userAgent);
 }
