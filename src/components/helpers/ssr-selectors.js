@@ -52,6 +52,12 @@ const getEngineVersion = (userAgent) => setDefaults(serverUA(userAgent).engine.v
 const getUseragent = (userAgent) => setDefaults(serverUA(userAgent).ua);
 const getDeviceType = (userAgent) => setDefaults(serverUA(userAgent).device.type, 'browser');
 
+export function uaIsMobile() {
+  const userAgent = (typeof _userAgent !== 'undefined') ? _userAgent : null;
+  // const { isMobile } = uaSelectors(userAgent);
+  return isMobileAndTabletType(userAgent);
+}
+
 export function uaSelectors(userAgent) {
   return {
     isSmartTV: isSmartTVType(userAgent),
